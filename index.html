@@ -134,6 +134,20 @@
     overflow:hidden;
   }
   .altar-motif svg{width:100%;height:100%;display:block;}
+  .cube-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .cube-grid .work-img{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+  }
+  @media (max-width:600px){
+    .cube-grid{grid-template-columns:1fr;}
+  }
   .video-frame{
     position:relative;
     width:100%;
@@ -270,6 +284,11 @@
       <p class="eyebrow">Series — in development</p>
       <h2>Cube Manifest</h2>
       <div class="work-block">
+        <div class="cube-grid">
+          <img class="work-img" src="assets/cube-manifest-1.jpg" alt="Cube Manifest maquette, angle view, with ruler for scale">
+          <img class="work-img" src="assets/cube-manifest-2.jpg" alt="Cube Manifest maquette, top-front view, with ruler for scale">
+          <img class="work-img" src="assets/cube-manifest-3.jpg" alt="Cube Manifest maquette, overhead view, with ruler for scale">
+        </div>
         <div class="video-frame">
           <iframe src="https://player.vimeo.com/video/1206669606?h=f99a2737d2" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
