@@ -1,1 +1,0 @@
-# davidinteriors.github.io
