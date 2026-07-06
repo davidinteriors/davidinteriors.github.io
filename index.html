@@ -7,6 +7,396 @@
 <meta name="description" content="David Byrne — sculptor. Digital-native forms, built in Blender, made for physical manufacture. Superposition and Alter of Entropy series.">
 <style>
   :root{
+    --paper: #EFEBE3;
+    --ink: #1B1917;
+    --oxide: #8C2E1C;
+    --stone: #B7AF9F;
+    --bone: #F7F4EE;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--oxide);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  /* ---- Hero: the shadow-cast title, echoing the Superposition motif ---- */
+  .hero{
+    position:relative;
+    padding:120px 28px 90px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    position:relative;
+    max-width:760px;
+    margin:0 auto;
+  }
+  .hero-shadow{
+    position:absolute;
+    left:-4%;
+    top:38%;
+    font-family:Tahoma, Geneva, sans-serif;
+    font-weight:300;
+    font-size:clamp(90px, 22vw, 260px);
+    color:var(--ink);
+    opacity:0.06;
+    letter-spacing:-0.02em;
+    white-space:nowrap;
+    transform:skewX(-11deg) scaleY(1.5);
+    transform-origin:left top;
+    pointer-events:none;
+    z-index:0;
+  }
+  .signature-block{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:22px;
+  }
+  .signature-img{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    display:block;
+  }
+  .hero-name{
+    position:relative;
+    z-index:1;
+    font-family:Tahoma, Geneva, sans-serif;
+    font-weight:500;
+    font-size:clamp(42px, 7vw, 68px);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .hero-tag{
+    position:relative;
+    z-index:1;
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--oxide);
+    margin:18px 0 0;
+  }
+  .hero-desc{
+    position:relative;
+    z-index:1;
+    max-width:480px;
+    margin:26px 0 0;
+    color:#3a3733;
+  }
+
+  /* ---- Section rhythm ---- */
+  section{padding:64px 0;border-top:1px solid var(--stone);}
+  .eyebrow{
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--oxide);
+    margin:0 0 18px;
+  }
+  h2{
+    font-family:Tahoma, Geneva, sans-serif;
+    font-weight:500;
+    font-size:32px;
+    margin:0 0 22px;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0 0 16px;}
+  .lede{font-size:19px;color:#2a2724;}
+
+  /* ---- Work cards ---- */
+  .work-block{margin-bottom:56px;}
+  .work-block:last-child{margin-bottom:0;}
+  figure.grid-item{margin:0;}
+  figure.grid-item figcaption{
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:11px;
+    color:#6b6558;
+    margin-top:6px;
+    letter-spacing:0.02em;
+  }
+  .work-img{
+    width:100%;
+    display:block;
+    border:1px solid var(--stone);
+    background:var(--bone);
+  }
+  .work-caption{
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:12px;
+    color:#6b6558;
+    margin:10px 0 20px;
+    letter-spacing:0.02em;
+  }
+  .work-text{max-width:600px;}
+
+  /* ---- Alter of Entropy: no photograph yet — a drawn motif standing in for one ---- */
+  .altar-motif{
+    width:100%;
+    aspect-ratio:16/9;
+    background:var(--ink);
+    border:1px solid var(--stone);
+    margin-bottom:10px;
+    position:relative;
+    overflow:hidden;
+  }
+  .altar-motif svg{width:100%;height:100%;display:block;}
+  .cube-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .cube-grid .work-img{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+  }
+  @media (max-width:600px){
+    .cube-grid{grid-template-columns:1fr;}
+  }
+  .dreamers-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .dreamers-grid .work-img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+  }
+  @media (max-width:600px){
+    .dreamers-grid{grid-template-columns:1fr;}
+  }
+  .video-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    background:var(--ink);
+    border:1px solid var(--stone);
+    overflow:hidden;
+  }
+  .video-frame iframe{
+    position:absolute;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+  .placeholder-note{
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:11px;
+    color:#8a8375;
+    letter-spacing:0.02em;
+  }
+
+  /* ---- CV / timeline ---- */
+  .cv-group{margin-bottom:38px;}
+  .cv-group h3{
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:#6b6558;
+    margin:0 0 14px;
+    font-weight:500;
+  }
+  .cv-row{
+    display:grid;
+    grid-template-columns:74px 1fr;
+    gap:18px;
+    padding:11px 0;
+    border-bottom:1px solid #ddd8cc;
+  }
+  .cv-row:last-child{border-bottom:none;}
+  .cv-year{
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:13px;
+    color:var(--oxide);
+    padding-top:1px;
+  }
+  .cv-detail b{font-weight:500;}
+  .cv-detail{font-size:15px;}
+
+  /* ---- Contact ---- */
+  .contact-links{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:15px;
+  }
+  .contact-links a{text-decoration:none;border-bottom:1px solid var(--oxide);}
+
+  footer{
+    padding:40px 28px 60px;
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:12px;
+    color:#8a8375;
+    text-align:center;
+  }
+
+  @media (max-width:600px){
+    .hero{padding:80px 22px 60px;}
+    section{padding:48px 0;}
+    .wrap{padding:0 22px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-shadow" aria-hidden="true">David Byrne</div>
+    <div class="hero-inner">
+      <div class="signature-block">
+        <img src="assets/signature.png" alt="David Byrne signature" class="signature-img">
+      </div>
+      <p class="hero-tag">Sculptor — Yukuhashi, Japan</p>
+      <h1 class="hero-name">David Byrne</h1>
+      <p class="hero-desc">I am a multi-disciplinary artist and designer dedicated to bridging the gap between traditional craftsmanship and cutting-edge technology. My work explores new frontiers in creative expression, blending classic techniques with modern digital tools to produce unique, innovative designs.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section id="statement">
+      <p class="eyebrow">Statement</p>
+      <h2>Small object, large shadow</h2>
+      <p class="lede">The work begins with a small, precise figure — crouched, occupied, attending to whatever the immediate problem is. Behind it, thrown against the wall, the shadow refuses to stay the size of the thing that cast it.</p>
+      <p>Every piece starts as light inside a computer before it is anything else. That isn't a metaphor so much as a working condition: the object is exact and finished long before the material world is asked to catch up to it.</p>
+    </section>
+
+    <section id="superposition">
+      <p class="eyebrow">Series — 2024–</p>
+      <h2>Superposition</h2>
+      <div class="work-block">
+        <img class="work-img" src="assets/superposition.jpg" alt="Superposition 1 and Superposition 2 — skeletal house forms with crouching figures, Blender renders by David Byrne">
+        <p class="work-caption">Superposition 1 &amp; 2 — digital renders, Blender. Designed as standalone print works.</p>
+        <div class="work-text">
+          <p>A skeletal house frame, a crouched figure, the minimal furniture of an interior life — rendered with an almost architectural restraint. Behind each object, a shadow spreads into something enormous and complicated: a house containing multitudes, unwilling to stay small.</p>
+          <p>The figure is not a self-portrait. It's a condition — small, occupied, casting something ungovernable it never quite turns around fast enough to see whole.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="altar">
+      <p class="eyebrow">Series — in development</p>
+      <h2>Alter of Entropy</h2>
+      <div class="work-block">
+        <div class="cube-grid">
+          <figure class="grid-item"><img class="work-img" src="assets/alterman.png" alt="Alter of Entropy — house frame form with red-toned interior elements"><figcaption>Alter of Entropy — study</figcaption></figure>
+          <figure class="grid-item"><img class="work-img" src="assets/Crimson_Eucharist.jpg" alt="Alter of Entropy — Crimson Eucharist, component elements arranged on red ground"><figcaption>Crimson Eucharist</figcaption></figure>
+          <figure class="grid-item"><img class="work-img" src="assets/Uncertain_Orbit_on_Red.jpg" alt="Alter of Entropy — Uncertain Orbit on Red, house forms orbiting a red circle"><figcaption>Uncertain Orbit on Red</figcaption></figure>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://player.vimeo.com/video/1206699482?h=c4a6ce5ead" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="work-text">
+          <p>Red-toned wall pieces in CNC-routed oak and 3D-printed elements. House forms orbit a red circle that explains nothing and resolves nothing — a void with the gravity of a fixture. Domestic entropy, arranged like evidence.</p>
+          <p>Ignorance is blunt. The figure crouches anyway.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cube-manifest">
+      <p class="eyebrow">Series — in development</p>
+      <h2>Cube Manifest</h2>
+      <div class="work-block">
+        <div class="cube-grid">
+          <figure class="grid-item"><img class="work-img" src="assets/cube-manifest-1.jpg" alt="Cube Manifest maquette, angle view, with ruler for scale"><figcaption>Angle view, with ruler for scale</figcaption></figure>
+          <figure class="grid-item"><img class="work-img" src="assets/cube-manifest-2.jpg" alt="Cube Manifest maquette, top-front view, with ruler for scale"><figcaption>Top-front view, with ruler for scale</figcaption></figure>
+          <figure class="grid-item"><img class="work-img" src="assets/cube-manifest-3.jpg" alt="Cube Manifest maquette, overhead view, with ruler for scale"><figcaption>Overhead view, with ruler for scale</figcaption></figure>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://player.vimeo.com/video/1206669606?h=f99a2737d2" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="dreamers-embodied">
+      <p class="eyebrow">RHA Annual Exhibition, 2024</p>
+      <h2>Dreamers Embodied</h2>
+      <div class="work-block">
+        <div class="dreamers-grid">
+          <figure class="grid-item"><img class="work-img" src="assets/dreamers_2.jpg" alt="Dreamers Embodied, 3D polymer print, overhead angle"><figcaption>Overhead angle</figcaption></figure>
+          <figure class="grid-item"><img class="work-img" src="assets/dreamers_3.JPG" alt="Dreamers Embodied, 3D polymer print, side angle"><figcaption>Side angle</figcaption></figure>
+          <figure class="grid-item"><img class="work-img" src="assets/dreamers.jpg" alt="Dreamers Embodied installed on plinth at RHA Annual Exhibition 2024"><figcaption>Installed, RHA Annual Exhibition 2024</figcaption></figure>
+          <figure class="grid-item"><img class="work-img" src="assets/dreamers_1.jpg" alt="Dreamers Embodied, 3D polymer print, detail view"><figcaption>Detail view</figcaption></figure>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://player.vimeo.com/video/1207226279?h=2c6ec08219" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="work-text">
+          <p>3D polymer print. Shown at the RHA Annual Exhibition, Dublin, 2024.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <p class="eyebrow">CV</p>
+      <h2>David Byrne, BA (Hons) Fine Art Sculpture</h2>
+
+      <div class="cv-group">
+        <h3>Education</h3>
+        <div class="cv-row"><div class="cv-year">1979</div><div class="cv-detail">Foundation Art course, RTC Galway, under Lochlann Hoare</div></div>
+        <div class="cv-row"><div class="cv-year">1981</div><div class="cv-detail">Faculty of Fine Art, York St, Belfast, under Alastair MacLennan</div></div>
+        <div class="cv-row"><div class="cv-year">1985</div><div class="cv-detail"><b>BA (Hons) Fine Art Sculpture</b>, NCAD, under Nigel Rolfe, Brian King and Campbell Bruce</div></div>
+      </div>
+
+      <div class="cv-group">
+        <h3>Selected exhibitions</h3>
+        <div class="cv-row"><div class="cv-year">1984</div><div class="cv-detail">Arts Council funded touring show, with James Concagh, Martin Folan and Brian Cronin — Dublin, Galway, Cork, Waterford, Wexford</div></div>
+        <div class="cv-row"><div class="cv-year">1985</div><div class="cv-detail"><i>Reflections</i>, group show with Anne Timony and Patricia Fitzpatrick, Temple Bar Gallery, Dublin</div></div>
+        <div class="cv-row"><div class="cv-year">1985</div><div class="cv-detail"><i>New Living Art</i>, submission piece, Project Arts Centre, Dublin</div></div>
+        <div class="cv-row"><div class="cv-year">2021</div><div class="cv-detail">RHA Annual Exhibition, Dublin — <i>The Divine Workbench</i> (bronze cast)</div></div>
+        <div class="cv-row"><div class="cv-year">2022</div><div class="cv-detail">RHA Annual Exhibition, Dublin — <i>3 Cellmates_Version 72</i> (3D polymer print)</div></div>
+        <div class="cv-row"><div class="cv-year">2024</div><div class="cv-detail">RHA Annual Exhibition, Dublin — <i>Dreamers Embodied</i> (3D polymer print)</div></div>
+        <div class="cv-row"><div class="cv-year">2024</div><div class="cv-detail">Magazzini dell'Arte Contemporanea, Trapani, Italy</div></div>
+      </div>
+
+      <div class="cv-group">
+        <h3>Practice</h3>
+        <div class="cv-row"><div class="cv-year">1989–2014</div><div class="cv-detail">Large-scale mural and fresco commissions across Ireland, England and Germany; interior design for retail and leisure sectors, Ireland and Europe</div></div>
+        <div class="cv-row"><div class="cv-year">2015–</div><div class="cv-detail">Based in Yukuhashi, Fukuoka Prefecture, Japan. Fine art practice resumed, working in Blender alongside traditional media</div></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <p>For exhibitions, editions, or press enquiries.</p>
+      <div class="contact-links">
+        <a href="mailto:davidinteriors@gmail.com">davidinteriors@gmail.com</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>© <span id="year"></span> David Byrne</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Byrne — Sculptor</title>
+<meta name="description" content="David Byrne — sculptor. Digital-native forms, built in Blender, made for physical manufacture. Superposition and Alter of Entropy series.">
+<style>
+  :root{
     --paper: #FFFFFF;
     --ink: #1B1917;
     --oxide: #8C2E1C;
