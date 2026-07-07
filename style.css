@@ -1,0 +1,343 @@
+:root{
+  --paper: #EFEBE3;
+  --ink: #1B1917;
+  --oxide: #8C2E1C;
+  --stone: #B7AF9F;
+  --bone: #F7F4EE;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--oxide);}
+.wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+/* ---- Navigation ---- */
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--paper);
+  border-bottom:1px solid var(--stone);
+}
+.site-nav .nav-inner{
+  max-width:760px;
+  margin:0 auto;
+  padding:18px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.nav-logo{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-weight:500;
+  font-size:16px;
+  color:var(--ink);
+  text-decoration:none;
+  letter-spacing:-0.01em;
+}
+.nav-links{
+  display:flex;
+  gap:22px;
+  list-style:none;
+  margin:0;
+  padding:0;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+}
+.nav-links a{
+  color:var(--ink);
+  text-decoration:none;
+  padding-bottom:2px;
+}
+.nav-links a.active{
+  color:var(--oxide);
+  border-bottom:1px solid var(--oxide);
+}
+@media (max-width:600px){
+  .site-nav .nav-inner{padding:14px 22px;}
+  .nav-links{gap:16px;font-size:12px;}
+}
+
+/* ---- Hero: the shadow-cast title, echoing the Superposition motif ---- */
+.hero{
+  position:relative;
+  padding:90px 28px 90px;
+  overflow:hidden;
+}
+.hero-inner{
+  position:relative;
+  max-width:760px;
+  margin:0 auto;
+}
+.hero-shadow{
+  position:absolute;
+  left:-4%;
+  top:38%;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-weight:300;
+  font-size:clamp(90px, 22vw, 260px);
+  color:var(--ink);
+  opacity:0.06;
+  letter-spacing:-0.02em;
+  white-space:nowrap;
+  transform:skewX(-11deg) scaleY(1.5);
+  transform-origin:left top;
+  pointer-events:none;
+  z-index:0;
+}
+.signature-block{
+  position:relative;
+  left:50%;
+  right:50%;
+  margin-left:-50vw;
+  margin-right:-50vw;
+  width:100vw;
+  margin-bottom:28px;
+  z-index:1;
+}
+.signature-img{
+  width:100%;
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+.hero-name{
+  position:relative;
+  z-index:1;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-weight:500;
+  font-size:clamp(42px, 7vw, 68px);
+  line-height:1.02;
+  letter-spacing:-0.01em;
+  margin:0;
+}
+.hero-tag{
+  position:relative;
+  z-index:1;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:var(--oxide);
+  margin:18px 0 0;
+}
+.hero-desc{
+  position:relative;
+  z-index:1;
+  max-width:480px;
+  margin:26px 0 0;
+  color:#3a3733;
+}
+.hero-cta{
+  position:relative;
+  z-index:1;
+  display:inline-block;
+  margin-top:26px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--oxide);
+  text-decoration:none;
+  border-bottom:1px solid var(--oxide);
+  padding-bottom:2px;
+}
+
+/* ---- Section rhythm ---- */
+section{padding:64px 0;border-top:1px solid var(--stone);}
+.page-header{padding:56px 0 0;}
+.eyebrow{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  color:var(--oxide);
+  margin:0 0 18px;
+}
+h2{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-weight:500;
+  font-size:32px;
+  margin:0 0 22px;
+  letter-spacing:-0.01em;
+}
+p{margin:0 0 16px;}
+.lede{font-size:19px;color:#2a2724;}
+
+/* ---- Work cards ---- */
+.work-block{margin-bottom:56px;}
+.work-block:last-child{margin-bottom:0;}
+figure.grid-item{margin:0;}
+figure.grid-item figcaption{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:11px;
+  color:#6b6558;
+  margin-top:6px;
+  letter-spacing:0.02em;
+}
+.work-img{
+  width:100%;
+  display:block;
+  border:1px solid var(--stone);
+  background:var(--bone);
+}
+.work-caption{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  color:#6b6558;
+  margin:10px 0 20px;
+  letter-spacing:0.02em;
+}
+.work-text{max-width:600px;}
+
+/* ---- Alter of Entropy: no photograph yet — a drawn motif standing in for one ---- */
+.altar-motif{
+  width:100%;
+  aspect-ratio:16/9;
+  background:var(--ink);
+  border:1px solid var(--stone);
+  margin-bottom:10px;
+  position:relative;
+  overflow:hidden;
+}
+.altar-motif svg{width:100%;height:100%;display:block;}
+.cube-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+  margin-bottom:16px;
+}
+.cube-grid .work-img{
+  width:100%;
+  aspect-ratio:16/10;
+  object-fit:cover;
+}
+@media (max-width:600px){
+  .cube-grid{grid-template-columns:1fr;}
+}
+.dreamers-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-bottom:16px;
+}
+.dreamers-grid .work-img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+@media (max-width:600px){
+  .dreamers-grid{grid-template-columns:1fr;}
+}
+.video-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:var(--ink);
+  border:1px solid var(--stone);
+  overflow:hidden;
+}
+.video-frame iframe{
+  position:absolute;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.placeholder-note{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:11px;
+  color:#8a8375;
+  letter-spacing:0.02em;
+}
+
+/* ---- Work index (Work page section list) ---- */
+.work-index{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.work-index li{
+  border-top:1px solid var(--stone);
+  padding:22px 0;
+}
+.work-index li:first-child{border-top:none;}
+.work-index a{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  text-decoration:none;
+  color:var(--ink);
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:20px;
+}
+.work-index a:hover{color:var(--oxide);}
+.work-index .work-index-meta{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:#6b6558;
+}
+
+/* ---- CV / timeline ---- */
+.cv-group{margin-bottom:38px;}
+.cv-group h3{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:#6b6558;
+  margin:0 0 14px;
+  font-weight:500;
+}
+.cv-row{
+  display:grid;
+  grid-template-columns:74px 1fr;
+  gap:18px;
+  padding:11px 0;
+  border-bottom:1px solid #ddd8cc;
+}
+.cv-row:last-child{border-bottom:none;}
+.cv-year{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:13px;
+  color:var(--oxide);
+  padding-top:1px;
+}
+.cv-detail b{font-weight:500;}
+.cv-detail{font-size:15px;}
+
+/* ---- Contact ---- */
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:15px;
+}
+.contact-links a{text-decoration:none;border-bottom:1px solid var(--oxide);}
+
+footer{
+  padding:40px 28px 60px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  color:#8a8375;
+  text-align:center;
+}
+
+@media (max-width:600px){
+  .hero{padding:60px 22px 60px;}
+  section{padding:48px 0;}
+  .wrap{padding:0 22px;}
+}
