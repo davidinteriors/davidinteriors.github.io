@@ -26,10 +26,28 @@
     <section id="contact" class="page-header" style="border-top:none;">
       <p class="eyebrow">Contact</p>
       <h2>Get in touch</h2>
-      <p>For exhibitions, editions, or press enquiries.</p>
+      <p>For exhibitions, editions, or press enquiries — send a message directly, or email me.</p>
       <div class="contact-links">
         <a href="mailto:davidinteriors@gmail.com">davidinteriors@gmail.com</a>
       </div>
+
+      <form class="contact-form" action="https://formsubmit.co/davidinteriors@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New message from davidinteriors.github.io">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" style="display:none">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="Name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="Message" rows="6" required></textarea>
+
+        <button type="submit">Send message</button>
+      </form>
     </section>
   </div>
 
