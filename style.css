@@ -325,8 +325,56 @@ figure.grid-item figcaption{
   gap:10px;
   font-family:Tahoma, Geneva, sans-serif;
   font-size:15px;
+  margin-bottom:36px;
 }
 .contact-links a{text-decoration:none;border-bottom:1px solid var(--oxide);}
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  max-width:520px;
+}
+.contact-form label{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:#6b6558;
+  margin-top:14px;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea{
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:15px;
+  color:var(--ink);
+  background:var(--bone);
+  border:1px solid var(--stone);
+  padding:10px 12px;
+  resize:vertical;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  border-color:var(--oxide);
+}
+.contact-form button{
+  align-self:flex-start;
+  margin-top:20px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--paper);
+  background:var(--oxide);
+  border:none;
+  padding:12px 26px;
+  cursor:pointer;
+}
+.contact-form button:hover{
+  opacity:0.9;
+}
 
 footer{
   padding:40px 28px 60px;
