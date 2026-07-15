@@ -34,8 +34,107 @@
       <a href="work.html" class="hero-cta">See the work →</a>
     </div>
   </div>
+<!-- 
+  Mailing list signup form — Buttondown
+  Drop this into the Home or Contact page of davidinteriors.github.io
+  Styled to match the existing warm paper palette (#EFEBE3) and Tahoma font.
 
+  SETUP STEPS:
+  1. Create a free account at https://buttondown.com
+  2. Go to Settings > Embedding, and find your unique username
+  3. Replace YOUR-USERNAME below with your actual Buttondown username
+  4. That's it — no backend, no API key needed, works on static GitHub Pages
+-->
+
+<section class="signup-block">
+  <h3 class="signup-heading">Follow the work</h3>
+  <p class="signup-copy">
+    Occasional notes when a piece finishes, a show happens, or something
+    physical catches up with the digital.
+  </p>
+
+  <form
+    action="https://buttondown.com/api/emails/embed-subscribe/davidinteriors
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.com/davidinteriors, 'popupwindow')"
+    class="signup-form"
+  >
+    <input
+      type="email"
+      name="email"
+      id="bd-email"
+      placeholder="your email"
+      required
+      class="signup-input"
+    />
+    <input type="hidden" value="1" name="embed" />
+    <button type="submit" class="signup-button">Subscribe</button>
+  </form>
+</section>
+
+<style>
+  .signup-block {
+    background-color: #EFEBE3;
+    border-top: 1px solid #d8d2c4;
+    border-bottom: 1px solid #d8d2c4;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    font-family: Tahoma, sans-serif;
+    margin: 3rem 0;
+  }
+
+  .signup-heading {
+    font-size: 1.1rem;
+    font-weight: normal;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+    color: #2a2a2a;
+  }
+
+  .signup-copy {
+    max-width: 420px;
+    margin: 0 auto 1.25rem;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .signup-form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 380px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .signup-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #b8b2a4;
+    background: #fff;
+    font-family: Tahoma, sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .signup-button {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid #2a2a2a;
+    background: #2a2a2a;
+    color: #EFEBE3;
+    font-family: Tahoma, sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .signup-button:hover {
+    background: #444;
+  }
+</style>
   <footer>© <span id="year"></span> David Byrne</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+'add mailing list signup
