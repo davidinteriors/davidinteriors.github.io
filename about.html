@@ -16,7 +16,15 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="prints.html">Prints</a></li>
-        <li><a href="about.html" class="active">About</a></li>
+        <li>
+          <a href="about.html" class="active">About</a><button class="dropdown-toggle" aria-label="Toggle About menu" aria-expanded="false">&#9662;</button>
+          <div class="nav-dropdown">
+            <ul class="nav-dropdown-inner">
+              <li><a href="news.html">News</a></li>
+              <li><a href="press.html">Press</a></li>
+            </ul>
+          </div>
+        </li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -65,5 +73,21 @@
 
   <footer>© <span id="year"></span> David Byrne</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.querySelectorAll('.dropdown-toggle').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        var li = this.closest('li');
+        var isOpen = li.classList.toggle('open');
+        this.setAttribute('aria-expanded', isOpen);
+      });
+    });
+    document.addEventListener('click', function(e){
+      document.querySelectorAll('.nav-links li.open').forEach(function(li){
+        if (!li.contains(e.target)) li.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 </html>
