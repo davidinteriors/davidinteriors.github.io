@@ -16,7 +16,15 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="prints.html">Prints</a></li>
-        <li><a href="about.html">About</a></li>
+        <li>
+          <a href="about.html">About</a><button class="dropdown-toggle" aria-label="Toggle About menu" aria-expanded="false">&#9662;</button>
+          <div class="nav-dropdown">
+            <ul class="nav-dropdown-inner">
+              <li><a href="news.html">News</a></li>
+              <li><a href="press.html">Press</a></li>
+            </ul>
+          </div>
+        </li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -34,32 +42,24 @@
       <a href="work.html" class="hero-cta">See the work →</a>
     </div>
   </div>
-<!-- 
-  Mailing list signup form — Buttondown
-  Drop this into the Home or Contact page of davidinteriors.github.io
-  Styled to match the existing warm paper palette (#EFEBE3) and Tahoma font.
-
-  SETUP STEPS:
-  1. Create a free account at https://buttondown.com
-  2. Go to Settings > Embedding, and find your unique username
-  3. Replace YOUR-USERNAME below with your actual Buttondown username
-  4. That's it — no backend, no API key needed, works on static GitHub Pages
--->
-
-<section class="signup-block">
-  <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="7077c34b-6c6b-4b17-b77f-16a25d579a54"></script>
-</section>
-
-<style>
-  .signup-block {
-    max-width: 480px;
-    margin: 3rem auto;
-    padding: 0 1.5rem;
-  }
-</style>
 
   <footer>© <span id="year"></span> David Byrne</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.querySelectorAll('.dropdown-toggle').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        var li = this.closest('li');
+        var isOpen = li.classList.toggle('open');
+        this.setAttribute('aria-expanded', isOpen);
+      });
+    });
+    document.addEventListener('click', function(e){
+      document.querySelectorAll('.nav-links li.open').forEach(function(li){
+        if (!li.contains(e.target)) li.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 </html>
-
