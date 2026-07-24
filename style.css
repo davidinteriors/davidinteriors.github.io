@@ -55,6 +55,17 @@ a{color:var(--oxide);}
   text-transform:uppercase;
   letter-spacing:0.1em;
 }
+.nav-links li{position:relative;display:flex;align-items:center;}
+.dropdown-toggle{
+  background:none;
+  border:none;
+  color:var(--ink);
+  font-size:10px;
+  cursor:pointer;
+  padding:0 0 0 4px;
+  line-height:1;
+}
+.nav-links li.open .nav-dropdown{display:block;}
 .nav-links a{
   color:var(--ink);
   text-decoration:none;
@@ -64,6 +75,30 @@ a{color:var(--oxide);}
   color:var(--oxide);
   border-bottom:1px solid var(--oxide);
 }
+.nav-dropdown{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  padding-top:14px;
+  min-width:130px;
+  z-index:30;
+}
+.nav-dropdown-inner{
+  background:var(--paper);
+  border:1px solid var(--stone);
+  padding:6px 0;
+  list-style:none;
+  margin:0;
+}
+.nav-links li:hover .nav-dropdown{display:block;}
+.nav-dropdown-inner li{padding:0;}
+.nav-dropdown-inner a{
+  display:block;
+  padding:8px 16px;
+  white-space:nowrap;
+}
+.nav-dropdown-inner a.active{border-bottom:none;background:var(--bone);}
 @media (max-width:600px){
   .site-nav .nav-inner{padding:14px 22px;}
   .nav-links{gap:16px;font-size:12px;}
