@@ -16,16 +16,9 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="prints.html">Prints</a></li>
-        <li>
-          <span class="nav-dropdown-label active">About &#9662;</span>
-          <div class="nav-dropdown">
-            <ul class="nav-dropdown-inner">
-              <li><a href="about.html">About</a></li>
-              <li><a href="news.html">News</a></li>
-              <li><a href="press.html">Press</a></li>
-            </ul>
-          </div>
-        </li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="press.html">Press</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -68,7 +61,7 @@
 
       <div class="cv-group">
         <h3>Practice</h3>
-        <div class="cv-row"><div class="cv-year">1989–2014</div><div class="cv-detail">Large-scale mural and fresco commissions across Ireland, England and Germany; interior design for retail and leisure sectors, Ireland and Europe</div></div>
+        <div class="cv-row"><div class="cv-year">1989–2014</div><div class="cv-year">Large-scale mural and fresco commissions across Ireland, England and Germany; interior design for retail and leisure sectors, Ireland and Europe</div></div>
         <div class="cv-row"><div class="cv-year">2015–</div><div class="cv-detail">Based in Yukuhashi, Fukuoka Prefecture, Japan. Fine art practice resumed, working in Blender alongside traditional media</div></div>
       </div>
     </section>
@@ -78,19 +71,5 @@
   <footer>© <span id="year"></span> David Byrne</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <script>
-    document.querySelectorAll('.nav-dropdown-label').forEach(function(label){
-      label.addEventListener('click', function(e){
-        e.preventDefault();
-        var li = this.closest('li');
-        li.classList.toggle('open');
-      });
-    });
-    document.addEventListener('click', function(e){
-      document.querySelectorAll('.nav-links li.open').forEach(function(li){
-        if (!li.contains(e.target)) li.classList.remove('open');
-      });
-    });
-  </script>
 </body>
 </html>
