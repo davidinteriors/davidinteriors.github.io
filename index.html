@@ -9,14 +9,14 @@
 </head>
 <body>
 
- <nav class="site-nav">
+  <nav class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">David Byrne</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="prints.html">Prints</a></li>
-        <li><a href="about.html" >About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="press.html">Press</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -32,7 +32,7 @@
       </div>
       <p class="hero-tag">Sculptor — Yukuhashi, Japan</p>
       <h1 class="hero-name">David Byrne</h1>
-      <p class="hero-desc">I am a multi-disciplinary artist and designer dedicated to bridging the gap between traditional craftsmanship and cutting-edge technology. My work explores new frontiers in creative expression, blending classic techniques with modern digital tools to produce unique, innovative designs.</p>
+      <p class="hero-desc">Irish sculptor and digital artist based in rural Japan. The work concerns the gap between the thing made and the shadow it casts — on the wall, and elsewhere.</p>
       <a href="work.html" class="hero-cta">See the work →</a>
     </div>
   </div>
@@ -49,20 +49,5 @@
   <footer>© <span id="year"></span> David Byrne</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <script>
-    document.querySelectorAll('.dropdown-toggle').forEach(function(btn){
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        var li = this.closest('li');
-        var isOpen = li.classList.toggle('open');
-        this.setAttribute('aria-expanded', isOpen);
-      });
-    });
-    document.addEventListener('click', function(e){
-      document.querySelectorAll('.nav-links li.open').forEach(function(li){
-        if (!li.contains(e.target)) li.classList.remove('open');
-      });
-    });
-  </script>
 </body>
 </html>
