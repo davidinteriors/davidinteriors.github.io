@@ -3,53 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David Byrne — Sculptor</title>
-<meta name="description" content="David Byrne — sculptor. Digital-native forms, built in Blender, made for physical manufacture.">
+<title>Contact — David Byrne</title>
+<meta name="description" content="Contact David Byrne — sculptor, for exhibitions, editions, or press enquiries.">
 <link rel="stylesheet" href="style.css">
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7802228670944456a2a3c90d2b2be461"}'></script><!-- End Cloudflare Web Analytics -->
-<meta name="google-site-verification" content="fz68CvyL-qk8MFcvboi_UInKQDab4jel_EIuyhXBtWg" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VEKB1RMFPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VEKB1RMFPW');
+</script>
 </head>
 <body>
-
   <nav class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">David Byrne</a>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="prints.html">Prints</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="press.html">Press</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </div>
   </nav>
-
-  <div class="hero">
-    <div class="hero-shadow" aria-hidden="true">David Byrne</div>
-    <div class="hero-inner">
-      <div class="signature-block">
-        <img src="assets/signature.png" alt="David Byrne signature" class="signature-img">
-      </div>
-      <p class="hero-tag">Sculptor — Yukuhashi, Japan</p>
-      <h1 class="hero-name">David Byrne</h1>
-      <p class="hero-desc">I'm an Irish sculptor based in rural Japan, making objects that don't yet physically exist but can be realised at any time. I design artworks that hover between intention and object — fully realised in 3D software, waiting for the foundry, the router, the printer. The shadow, it turns out, arrives before the thing that casts it.</p>
-      <a href="work.html" class="hero-cta">See the work →</a>
-    </div>
-  </div>
-
   <div class="wrap">
-    <section id="subscribe" class="page-header" style="border-top:none;">
-      <p class="eyebrow">Mailing List</p>
-      <h2>Stay in touch</h2>
-      <p>Occasional updates on new work, exhibitions, and writing.</p>
-      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="7077c34b-6c6b-4b17-b77f-16a25d579a54"></script>
+    <section id="contact" class="page-header" style="border-top:none;">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <p>For exhibitions, editions, or press enquiries — send a message directly, or email me.</p>
+      <div class="contact-links">
+        <a href="mailto:davidinteriors@gmail.com">davidinteriors@gmail.com</a>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/davidinteriors@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New message from davidinteriors.github.io">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" style="display:none">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="Name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="Message" rows="6" required></textarea>
+        <button type="submit">Send message</button>
+      </form>
     </section>
   </div>
-
   <footer>© <span id="year"></span> David Byrne</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
 </body>
 </html>
