@@ -6,9 +6,16 @@
 <title>Contact — David Byrne</title>
 <meta name="description" content="Contact David Byrne — sculptor, for exhibitions, editions, or press enquiries.">
 <link rel="stylesheet" href="style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VEKB1RMFPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VEKB1RMFPW');
+</script>
 </head>
 <body>
-
   <nav class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">David Byrne</a>
@@ -23,7 +30,6 @@
       </ul>
     </div>
   </nav>
-
   <div class="wrap">
     <section id="contact" class="page-header" style="border-top:none;">
       <p class="eyebrow">Contact</p>
@@ -47,9 +53,7 @@
       </form>
     </section>
   </div>
-
   <footer>© <span id="year"></span> David Byrne</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
 </body>
 </html>
